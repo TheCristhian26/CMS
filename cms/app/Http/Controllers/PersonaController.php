@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App/Models/persona;
+use redirect;
 
 class PersonaController extends Controller
 {
@@ -13,7 +14,8 @@ class PersonaController extends Controller
      */
     public function index()
     {
-        //
+        $personas=persona::all();
+        return view('persona.index',compact(['personas']));
     }
 
     /**
@@ -21,7 +23,7 @@ class PersonaController extends Controller
      */
     public function create()
     {
-        //
+        return view('persona.create')
     }
 
     /**
@@ -29,7 +31,8 @@ class PersonaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $personas= persona::create($request->all());
+        return redirect()->route('persona.index')
     }
 
     /**
@@ -37,7 +40,8 @@ class PersonaController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $personas = Project::findOrFail($id);
+        return view('persona.show',compact(["persona"]));
     }
 
     /**
@@ -45,22 +49,33 @@ class PersonaController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $personas = Project::findOrFail($id);
+        return view('persona.edit',compact(["persona"]));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request,  $id)
     {
-        //
-    }
+        $personas = Project::findOrFail($id);
+        $personas->fill($request->all());
+        $personas->save();
+        return redirect()->route('persona.index');
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy( $id)
     {
-        //
+        $personas = Project::findOrFail($id);
+        $personas->delete();
+        return redirect()->route('persona.index');
+    }
+
+    public function delete($id)
+    {
+        $personas = Project::findOrFail($id);
+        return view('projects.delete',compact(["persona"]));
     }
 }
