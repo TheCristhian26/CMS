@@ -15,16 +15,15 @@ class Project extends Model
         "name",
         "cedula",
         "tipo_persona",
+        "imagen",
         "nombre_del_producto",
         "numero_de_ventas",
+        "precio",
         "fecha"
     ];
 
-    public function user() {
-        return $this->belongsTo(User::class,'user_id');
+    public function facturass(){
+        return $this->hasMany(Factura::class,'Factura_id');
     }
-
-    public function tareas() {
-        return $this->hasMany(Tarea::class,'project_id');
-    }
+    
 }

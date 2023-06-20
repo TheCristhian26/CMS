@@ -13,17 +13,16 @@ return new class extends Migration
     {
         Schema::create('ventas', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable();
-            $table->bigInteger('cedula')->nullable();
-            $table->string('nombre_del_producto')->nullable();
+            $table->unsignedBigInteger('Producto_nombre_del_producto')->index();
             $table->bigInteger('numero_de_ventas')->nullable();
-            $table->bigInteger('tipo_persona')->nullable();
+            $table->longText('imagen')->nullable();
             $table->float('cantidad_de_fruto')->nullable();
+            $table->float('precio_de_fruto')->nullable();
+            $table->unsignedBigInteger('tipo_persona_id')->index();
+            $table->unsignedBigInteger('Persona_id')->index();
+            $table->unsignedBigInteger('Persona_name')->index();
+            $table->unsignedBigInteger('Persona_cedula')->index();
             $table->timestamps();
-
-
-
-           
         });
     }
 

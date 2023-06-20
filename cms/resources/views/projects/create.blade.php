@@ -3,52 +3,30 @@
 @section('content')
     <div class="row d-flex justify-content-center">
         <div class="col-md-10">
-            <form action="{{ route('projects.store') }}" method="POST">
+            <form action="{{ route('persona.store') }}" method="POST">
                 @csrf
-                <div class="d-flex justify-content-center">
-                    <img id="imagen" src="{{ asset('img/default.png') }}" alt="" width="150px" height="150px" style="border: solid 1px #000000">
-                    <input type="file" id="input_imagen" class="d-none">
-                    <textarea name="imagen" id="imagen_texto" cols="30" rows="10" class="d-none"></textarea>
+                <div class="mb-3">
+                    <label for="name" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" id="name" name="name">
                 </div>
                 <div class="mb-3">
-                    <label for="nombre" class="form-label">Nombre</label>
-                    <input type="text" class="form-control" id="nombre" name="nombre">
+                    <label for="apellido" class="form-label">apellido</label>
+                    <input type="text" class="form-control" id="apellido" name="apellido">
                 </div>
                 <div class="mb-3">
-                    <label for="descripcion" class="form-label">Descripción</label>
-                    <textarea class="form-control" name="descripcion" id="descripcion" cols="30" rows="10"></textarea>
-                    <input type="hidden" value="{{ Auth::user()->id }}" name="user_id">
+                    <label for="cedula" class="form-label">cedula</label>
+                    <input type="text" class="form-control" id="cedula" name="cedula">
+                </div>
+                <div class="mb-3">
+                    <label for="direccion" class="form-label">direccion</label>
+                    <input type="text" class="form-control" id="direccion" name="direccion">
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">password</label>
+                    <input type="password" class="form-control" id="password" name="password">
                 </div>
                 <button type="submit" class="btn btn-primary">Crear</button>
             </form>
         </div>
     </div>
-@endsection
-
-@section('scripts')
-
-<script>
-    var imagen = document.getElementById('imagen');
-    var input_imagen = document.getElementById('input_imagen');
-    var imagen_texto = document.getElementById('imagen_texto');
-    imagen.addEventListener('click',function(){
-        input_imagen.click();
-    });
-    input_imagen.addEventListener('change',function(){
-        var file = this.files[0];
-        var sizebyte = this.files[0].size;
-        var sizekilobyte = parseInt(sizebyte / 1024);
-        if (sizekilobyte > 4096) {
-            alert('La imagen excede el tamaño permitido de 4 MB');
-        } else {
-            var reader = new FileReader();
-            reader.onloadend = function() {
-                document.getElementById("imagen").src = reader.result;
-                document.getElementById("imagen_texto").value = reader.result;
-            }
-            reader.readAsDataURL(file);
-        }
-    });
-</script>
-
 @endsection

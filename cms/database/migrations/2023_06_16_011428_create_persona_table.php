@@ -18,6 +18,7 @@ return new class extends Migration
             $table->bigInteger('cedula')->nullable();
             $table->string('direccion')->nullable();
             $table->string('password')->nullable();
+            $table->unsignedBigInteger('tipo_persona_id')->index();
             $table->timestamps();
 
         });

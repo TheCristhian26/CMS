@@ -21,11 +21,8 @@ class Project extends Model
         "password"
     ];
 
-    public function user() {
-        return $this->belongsTo(User::class,'user_id');
+    public function ventas(){
+        return $this->hasMany(Persona::class,'Ventas_id');
     }
-
-    public function tareas() {
-        return $this->hasMany(Tarea::class,'project_id');
-    }
+    
 }

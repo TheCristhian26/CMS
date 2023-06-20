@@ -13,13 +13,14 @@ return new class extends Migration
     {
         Schema::create('factura', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable();
-            $table->bigInteger('cedula')->nullable();
-            $table->bigInteger('tipo_persona')->nullable();
-            $table->float('cantidad_de_fruto')->nullable();
-            $table->string('nombre_producto')->nullable();
-            $table->bigInteger('numero_ventas')->nullable();
-            $table->bigInteger('tipo_persona1')->nullable();
+            $table->unsignedBigInteger('tipo_persona_id')->index();
+            $table->unsignedBigInteger('Persona_id')->index();
+            $table->unsignedBigInteger('Persona_name')->index();
+            $table->unsignedBigInteger('Persona_cedula')->index();
+            $table->unsignedBigInteger('Ventas_id')->index();
+            $table->unsignedBigInteger('Ventas_numero_de_ventas')->index();
+            $table->unsignedBigInteger('Ventas_precio')->index();
+            $table->unsignedBigInteger('Producto_nombre_del_producto')->index();
             $table->timestamps();
 
 

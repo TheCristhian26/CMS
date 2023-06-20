@@ -15,11 +15,7 @@ class Project extends Model
         "nombre_del_producto",
     ];
 
-    public function user() {
-        return $this->belongsTo(User::class,'user_id');
-    }
-
-    public function tareas() {
-        return $this->hasMany(Tarea::class,'project_id');
+    public function ventas(){
+        return $this->hasMany(Ventas::class,'Ventas_id');
     }
 }
