@@ -18,7 +18,6 @@
 
 <body class="hold-transition sidebar-mini">
     <div class="wrapper">
-
         <!-- Navbar -->
         <nav class="main-header navbar navbar-expand bg-white navbar-light border-bottom">
             <!-- Left navbar links -->
@@ -57,8 +56,17 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-danger" data-slide="true" href="#">Salir&nbsp;<i class="fa fa-sign-out"></i></a>
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <x-dropdown-link :href="route('logout')"
+                                onclick="event.preventDefault();
+                                            this.closest('form').submit();">
+                            {{ __('Salir') }}
+                        </x-dropdown-link>
+                    </form>
+                    
                 </li>
+                
             </ul>
         </nav>
         <!-- /.navbar -->
@@ -439,6 +447,8 @@
     <script src="js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE App -->
     <script src="js/adminlte.js"></script>
+    
+    
 </body>
 
 </html>
