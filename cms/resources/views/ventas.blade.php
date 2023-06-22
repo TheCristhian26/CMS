@@ -12,6 +12,13 @@
   </head>
   <body>
     <h1>Hello, world!</h1>
+    <table>
+      <tr>
+        <td>
+          
+        </td>
+      </tr>
+    </table>
 
     <!-- Optional JavaScript; choose one of the two! -->
 

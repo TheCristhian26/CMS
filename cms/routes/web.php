@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HelloController;
+use App\Http\Controllers\PersonaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +19,7 @@ Route::get('/', function () {
     return view('plantilla');
 });
 
+Route::resource('personas',PersonaController::class);
 
 Route::get('hello',[HelloController::class,'hello']);
 Route::get('/dashboard', function () {
