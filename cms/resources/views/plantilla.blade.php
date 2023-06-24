@@ -18,9 +18,6 @@
             @endif
             @endauth
         @endif
-
-
-
     </div>   
     
 </body>

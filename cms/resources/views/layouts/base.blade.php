@@ -30,10 +30,10 @@
 
                       @auth
                           <li class="nav-item">
-                              <a class="nav-link" href="{{ route('proyectos.index') }}">Proyectos</a>
+                              <a class="nav-link" href="{{ route('personas.index') }}">Proyectos</a>
                           </li>
                           <li class="nav-item">
-                              <a class="nav-link" href="{{ route('tareas.index') }}">Tareas</a>
+                              <a class="nav-link" href="{{ route('personas.index') }}">Tareas</a>
                           </li>
                           <li class="nav-item">
                               <form id="logout-form" method="POST" action="{{ route('logout') }}">

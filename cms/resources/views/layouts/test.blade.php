@@ -284,7 +284,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0 text-dark">Titulo principal</h1>
+                            <h1 class="m-0 text-dark">Administracion</h1>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
                 </div><!-- /.container-fluid -->
@@ -298,7 +298,7 @@
                         <div class="card-header">
                             <i class="fa fa-align-justify"></i> Productos
                             <button type="button" class="btn btn-success" data-toggle="modal" data-target="#registrar_producto">
-                                <i class="fa fa-plus"></i>&nbsp;Nuevo
+                                <i  class="fa fa-plus" > <a href="{{ route('personas.create') }}">NUevo</a></i>&nbsp;Nuevo
                             </button>
                         </div>
                         <!-- /.card-header -->
